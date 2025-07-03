@@ -1,0 +1,14 @@
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test view page</title>
+</head>
+<body>
+    <!-- XSS 불가 -->
+    <h3 th:text="${value}"></h3>
+
+    <!-- XSS 가능(특수문자 escape 처리함) -->
+    <!--  http://localhost:8081/view?value=%3Cscript%3Ealert(1)%3C/script%3E  -->
+    <h3 th:utext="${value}"></h3>
+</body>
+</html>
