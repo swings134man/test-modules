@@ -33,4 +33,14 @@ public class TestViewController {
         log.info("value : {}", value);
     }
 
+    @GetMapping("/view3")
+    public String view3(Model model) {
+//        String tag = "<h1>View3</h1>";
+        String tag = "&lt;h1&gt;View3&lt;/h1&gt;"; // 이스케이프 한 내용은 HTML로 렌더링되지 않음 -> Text 출력
+
+
+        model.addAttribute("value", tag);
+        return "test2";
+    }
+
 }
